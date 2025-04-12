@@ -20,7 +20,6 @@ app.use(
     credentials: true,
   })
 );
-
 app.use("/api/user", userRouter);
 app.use("/api/blog",blogRouter);
 app.use(errorMiddleware);
