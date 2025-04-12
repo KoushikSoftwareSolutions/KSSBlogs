@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import userRouter from "./routes/user.auth.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
 import dbConnect from "./db/db_connect.js";
+import blogRouter from "./routes/blogs.auth.js";
 
 dotenv.config();
 
@@ -15,12 +16,13 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "https://kssblogs.koushiksoftwaresolutions.in",
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
 
 app.use("/api/user", userRouter);
+app.use("/api/blog",blogRouter);
 app.use(errorMiddleware);
 
 app.get("/", (req, res) => res.send("Welcome to blogs"));
