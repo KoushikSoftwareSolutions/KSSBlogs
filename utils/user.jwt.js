@@ -12,8 +12,8 @@ const storeJWT = (req, res, id, email) => {
     );
     res.cookie("auth", token, {
         httpOnly: true,
-        secure: false, 
-        sameSite: "None", 
+        secure: true, 
+        sameSite: "Strict", 
         maxAge: 7 * 24 * 60 * 60 * 1000, 
       });
   } catch (e) {
