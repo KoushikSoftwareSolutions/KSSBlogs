@@ -5,7 +5,7 @@ const getAllBlogs = async (req, res) => {
     try {
         await dbConnect();
 
-        const blogs = await Blog.find(); // Correct: Fetch all blogs
+        const blogs = await Blog.find(); 
 
         res.status(200).json({ blogs });
     } catch (error) {
